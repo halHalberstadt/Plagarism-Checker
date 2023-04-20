@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+h1{
+  font-size: 40px;
+  background-color: white;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+p,a{
+  font-size: 25px;
+}
+
+a{
+  margin: 0;
+  padding: 10px;
+}
+
+body {
+    background-color: #C1E1C1;
+    color: black;
+}
+form{
+  background-color: white;
+}
+#homeInfo{
+  text-align: center;
+  margin: 30px 200px 0px 200px;
+}
+
+.thumbnails {
+    width: 550px;
+    height: 500px;
+    margin: auto;
+    display: block;
+}
+
+#homeImg {
+width: 100px;
+  align-self: center;
+  margin: 10px;
+}
+
+#homeDiv{
+   display: flex;
+  justify-content: center;
+}
+
+h1, p {
+  text-align: center;
+}
+nav{
+  text-align: center;
+}
+nav, a:hover {
+    color:blue;
+}
+
+#logoImg
+{
+  width: 70px;
+  align-self: center;
+  margin: 10px;
+}
+
+#foot
+{
+  background-color: white;
+  color: black;
+}
+
+#searchBox{
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+#input
+{
+  text-align: center;
+  alignment-self: center;
+  justify-content: center;
+  color: black;
+}
+#checkerDiv
+{
+  text-align: center;
+  font-size: 30px;
+  width: 700px;
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+  
+}
+#homeField{
+  text-align: center;
+  font-size: 25px;
+  width: 900px;
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+}
+#scraperField{
+  text-align: center;
+  font-size: 25px;
+  width: 700px;
+  margin: auto;
+  background-color: white;
+  border-radius: 20px;
+}
+#submitButton
+{
+  text-align: center;
+  alignment-self: center;
+  justify-content: center;
+}
+#searchQuestion{
+  background-color: white;
+  color: black;
+}
+#searchFile{
+  background-color: white;
+  color: black;
+}
+#submit
+{
+  background-color: white;
+}
+#errorMsg{
+  text-align: center;
+  alignment-self: center;
+  justify-content: center;
+}
