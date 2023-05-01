@@ -14,5 +14,10 @@
     "morgan": "~1.9.1",
     "node-fetch": "^2.6.9",
     "pug": "2.0.0-beta11"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

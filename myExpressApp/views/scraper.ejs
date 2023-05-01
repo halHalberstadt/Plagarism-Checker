@@ -15,22 +15,24 @@
   <br>
    <fieldset id="scraperField">
     <div id="input">
-          <h4><b>Would you like to search a single question or upload a file?</b></h4>
+          <h4><b>Submit a single question or upload a file</b></h4>
           
-          <input class="search_options" type="radio" name="search" id="question" value="question">
-              <label for="question"> Single Question
-          <input class="search_options" type="radio" name="search" id="file" value="file">
-              <label for="file"> Upload file
-
-  </div>
-
-  <div id="errorMsg">
-    <p></p>
+          Enter your assignment query: <input type="text" id="searchQ" name="assignmentQuestion">
+          <button id="submitQ" type="submit">Search</button>
+          <br>
+          <br>
+          <label for="searchF">Upload file:</label>
+              <input type="file" id="searchF" name="searchF">`
+              <button id="submitF" type="submit">Search</button>
   </div>
   
-  <div id="submitButton">
-        <button id="submit" type="button">submit</button>
+  <br>
+  <br>
+
+  <div id="results">
+
   </div>
+        
 </fieldset> 
   <script src="/javascripts/script.js"></script>   
 </body>

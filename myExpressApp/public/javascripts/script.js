@@ -1,42 +1,90 @@
-var button = document.querySelector("#submit");
-button.addEventListener("click", searchDecision);
-document.querySelector("#searchButton").addEventListener("click", searchGoogle);
+// const express = require("express");
 
-function searchDecision()
-{
-    let response = document.querySelector("input[name=search]:checked");
-    if (response == null) {
-        document.querySelector("#errorMsg").innerHTML = `Please Choose One Option`;
-        document.querySelector("#errorMsg").style.backgroundColor = "red";
-        return;
-    }
+var buttonQ = document.querySelector("#submitQ");
+var buttonF = document.querySelector("#submitF");
+var resultsText = document.querySelector("#results");
 
-        if (response.value == "question")
-        {
-          document.querySelector("#input").innerHTML = `Enter your assignment query: <input type="text" id="searchBox" name="assignmentQuestion">`;
-          document.querySelector("#errorMsg").style.backgroundColor = "white";
-          document.querySelector("#errorMsg").innerHTML = `<br><br><button id="searchQuestion" type="button">
-      Search
-    </button>`;
-          document.querySelector("#submitButton").innerHTML = ``;
-        }
-        else
-        {
-            document.querySelector("#input").innerHTML =`<label for="myfile">Upload file:</label>
-              <input type="file" id="myfile" name="myfile">`;
-            document.querySelector("#errorMsg").style.backgroundColor = "white";
-            document.querySelector("#errorMsg").innerHTML = `<br><br><button id="searchFile" type="button">
-      Search
-    </button>`;
-            
-          document.querySelector("#submitButton").innerHTML = ``;
+console.log(buttonF);
+//Adds listeners for buttons in web scraper page, if button is clicked then the corresponding functions execute
+buttonQ.addEventListener("click", searchQuestion);
+buttonF.addEventListener("click", searchFile);
+console.log("script here");
 
-        }
-    }
+async function searchTest(endpoint, document){
+  // console.log(`http://website-spring.herokuapp.com/` + endpoint + "?ordered=False");
+  // console.log(document);
+  // let docText = JSON.stringify(document);
+  // document = document + "?";
+  let res = await fetch(`http://website-spring.herokuapp.com/` + endpoint, {
+    method: "POST",
+    body: document
+  })
+  // }).then((res) => res.json())
+  console.log("response", res);
+  // let obj = await response.json();
+  let obj = await res.text();
+  console.log(obj.value);
+  return obj;
+};
 
+// function for single question search
+async function searchQuestion(){
+  console.log("value = ", document.querySelector("#searchQ").value);
+  let obj = await searchTest("text?ordered=False", document.querySelector("#searchQ").value );
+  console.log("Search Test", obj);
+  // obj.queries.forEach(element => {
+  //   resultsText.innerHTML += element.queryText;
+  // });
 
-function searchGoogle(){
-  console.log("click");
-  let searchQ = document.querySelector("#searchBox").value;
-  console.log(searchQ);
+ 
 }
+
+//Testing function
+// async function uploadFile() {
+//   let formData = new FormData(); 
+//   formData.append("fileupload", fileupload.files[0]);
+//     await fetch(`http://website-spring.herokuapp.com/` + endpoint, {
+//     method: "POST", 
+//     body: formData
+//   }); 
+// }
+
+// function for file search
+async function searchFile(){
+  var input = document.querySelector('input[type="file"]')
+  var data = new FormData();
+  data.append('document', input[0]);
+  // data = input[0]
+  // console.log(data.values());
+  // console.log("data", input.value);
+  let obj = await searchTest("word?search=False", data);
+  console.log("Search Test ->", obj);
+
+  
+}
+
+// function HtmlFormRequest( url, input, cb ) 
+// { 
+//     var i, args = ""; 
+    
+//     if( input.enctype == 'multipart/form-data' ) { 
+//     	args = new FormData(input); 
+//     } else { 
+// 	    for( i in input.elements ) { 
+// 	        if( input.elements[i].type != 'button' ) { 
+// 	            if( args != "" ) args += "&"; 
+// 	            args += encodeURIComponent(input.elements[i].name) + "=" + encodeURIComponent(input.elements[i].value); 
+// 	        } 
+// 	    } 
+//     } 
+//     HtmlRequest(url, args, cb); 
+// } 
+
+// async function searchTest(){
+//   let response = await fetch(`http://website-spring.herokuapp.com/exampleQuery`, {
+//     method: "GET"
+//   })
+//   let obj = await response.json();
+//   console.log(obj);
+//   return obj;
+// };
